@@ -36,7 +36,7 @@
                                                 <div class="col-sm-4">
                                                     <div class="picture-container">
                                                         <div class="picture">
-                                                            <img *ngIf="!imgTemp" src="assets/img/noImage.jpg" class="picture-src" id="wizardPicturePreview1" title="" />
+                                                            <img *ngIf="!imgTemp" src="assets/img/noImage1.jpg" class="picture-src" id="wizardPicturePreview1" title="" />
                                                             <img *ngIf="imgTemp" [src]="imgTemp" class="picture-src" id="wizardPicturePreview1" title="" />
 
                                                             <input type="file" id="wizard-picture" (change)="selectImage($event.target.files[0])">
@@ -65,7 +65,7 @@
                                                         <a href="#"><img [src]="img.img" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="height: 150px !important;"></a>
                                                     </div>
                                                     <div class="product-content">
-                                                        <a style="cursor: pointer;" (click)="deletePublicidad(img._id, img.type)">Eliminar</a>
+                                                        <a style="cursor: pointer; color: #C00000;" (click)="deletePublicidad(img._id, img.type)">Eliminar</a>
                                                     </div>
                                                 </div>
                                             </div>
