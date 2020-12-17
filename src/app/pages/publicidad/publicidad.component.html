@@ -1,0 +1,82 @@
+<br>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <form class="form-horizontal" #updEmp="ngForm" (ngSubmit)="subirImg(updEmp)">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4">
+                                    <div class="radio">
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="pw" #p [ngModel]="pw" id="radio1" value="2" (click)="getPublicidad(p.value)" ng-checked="radio1">
+                                            <label for="radio1">
+                                                Página Web
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="radio" name="pw" #q [ngModel]="pw" id="radio2" value="1" (click)="getPublicidad(q.value)">
+                                            <label for="radio2">
+                                            Aplicación Móvil
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="row" style="text-align: center;">
+                                <div class="col-md-12">
+                                    <div class="wizard-container" style="width: 100%; height: 100%;">
+                                        <div class=" card-wizard" data-color="primary" id="wizardProfile">
+
+                                            <div class="row justify-content-center">
+                                                <div class="col-sm-4"></div>
+                                                <div class="col-sm-4">
+                                                    <div class="picture-container">
+                                                        <div class="picture">
+                                                            <img *ngIf="!imgTemp" src="assets/img/noImage.jpg" class="picture-src" id="wizardPicturePreview1" title="" />
+                                                            <img *ngIf="imgTemp" [src]="imgTemp" class="picture-src" id="wizardPicturePreview1" title="" />
+
+                                                            <input type="file" id="wizard-picture" (change)="selectImage($event.target.files[0])">
+                                                        </div>
+                                                        <h6 id="noImage" class="description">Cambiar Imagen</h6>
+
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            </div>
+
+                                            <input type="submit" value="Guardar" class="btn btn-danger">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <section class="ws-section-spacing">
+                                    <div class="container">
+                                        <div class="row justify-content-sm-center">
+                                            <!--item-->
+                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10" *ngFor="let img of imagenes; let i = index">
+                                                <div class="product-card" style="height: 250px !important;">
+                                                    <div class="product-bg">
+                                                        <a href="#"><img [src]="img.img" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s" data-wow-iteration="1" alt="" style="height: 150px !important;"></a>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <a style="cursor: pointer;" (click)="deletePublicidad(img._id, img.type)">Eliminar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
