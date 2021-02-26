@@ -1,0 +1,202 @@
+<br>
+
+<form #lugar="ngForm" (ngSubmit)="agregarLugar(lugar)">
+    <div class="col-sm-6">
+        <div class="form-horizontal">
+            <div class="card" style="height: 530px;">
+                <div class="card-content">
+                    <div class="row" style="text-align: center;">
+                        <div class="col-sm-12">
+                            <div class="wizard-container" style="width: 100%; height: 100%;">
+                                <div class=" card-wizard" data-color="primary" id="wizardProfile">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-4">
+                                            <div class="picture-container">
+                                                <div class="picture" style="width: 115px; height: 115px;">
+                                                    <img *ngIf="!imgTemp" src="assets/img/default-img.jpg" class="picture-src" id="wizardPicturePreview1" title="" />
+                                                    <img *ngIf="imgTemp" [src]="imgTemp" class="picture-src" id="wizardPicturePreview1" title="" />
+
+                                                    <input type="file" id="wizard-picture" (change)="selectImage($event.target.files[0])">
+                                                </div>
+                                                <h6 id="noImage" class="description">Cambiar Imagen</h6>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="lng" class="col-sm-2 control-label">Nombre:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="nombre" name="nombre" [ngModel]="nombre" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lng" class="col-sm-2 control-label">Sector:</label>
+                                <div class="col-sm-8">
+                                    <select id="sector" class="form-control custom-select" id="sec" name="sec" ngModel data-title="Seleccionar" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                        <!-- <option value hidden>Seleccionar</option>  -->
+                                        <option *ngFor="let sector of sector" value="{{sector._id}}">{{sector.nombre}}</option>
+                                    </select>
+                                </div>
+                                <button type="button" data-toggle="modal" data-target="#modaladdSec" class="btn btn-danger">+</button>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tipo" class="col-sm-2 control-label">Tipo:</label>
+                                <div class="col-sm-8">
+                                    <select id="tipo" class="form-control custom-select" id="tipo" name="tipo" ngModel data-title="Seleccionar" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                        <!-- <option value hidden>Seleccionar</option>  -->
+                                        <option *ngFor="let tipo of tipos" value="{{tipo._id}}">{{tipo.descripcion}}</option>
+                                    </select>
+                                </div>
+                                <button type="button" data-toggle="modal" data-target="#modaladdTipo" class="btn btn-danger">+</button>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lng" class="col-sm-2 control-label">Información:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="informacion" name="informacion" [ngModel]="informacion" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lng" class="col-sm-2 control-label">Descripción:</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="descripcion" name="descripcion" ngModel rows="4" cols="50"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card" style="height: 530px;">
+            <div class="card-content" id="loc-mapa">
+                <div id="mapa"></div>
+                <br>
+                <div class="row" style="text-align: center;">
+                    <button type="button" class="btn btn-danger btn-fill" style="margin-left: auto; margin-right: auto;" title="Agregar Marcador" (click)="crearMarcador()">
+                    <!-- <i class="fa fa-plus"></i> -->
+                    Agregar Marcador
+                    </button>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="lng" class="col-sm-2 control-label">Lng:</label>
+                            <div class="col-sm-3">
+                                <input type="text" id="lng" name="lng" [ngModel]="lng" class="form-control">
+                            </div>
+
+                            <label for="lng" class="col-sm-2 control-label">Lat:</label>
+                            <div class="col-sm-3">
+                                <input type="text" id="lat" name="lat" [ngModel]="lat" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="row" style="text-align: center;">
+            <input type="submit" value="Agregar Lugar" class="btn btn-danger btn-fill">
+        </div>
+    </div>
+</form>
+
+<br>
+
+
+<!-- Modal para sector nuevos -->
+<div class="modal fade" id="modaladdSec" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <form #addSec="ngForm" id="addC" (ngSubmit)="addSector(addSec); addSec.reset()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" #closebuttonadd data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar Sector</h4>
+                </div>
+                <div class="modal-body ">
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" style="margin-top: 10px;">Nombre:</label>
+                        <div class="col-md-8">
+                            <div class="form-group has-default">
+                                <input type="text" id="nomSec" name="nomSec" [ngModel]="nomSec" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" style="margin-top: 10px;">Descripción:</label>
+                        <div class="col-md-8">
+                            <div class="form-group has-default">
+                                <input type="text" id="desSec" name="desSec" ngModel class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="add_Sec" name="add_Sec">
+                    Agregar
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Modal para tipo nuevos -->
+<div class="modal fade" id="modaladdTipo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <form #addTipoF="ngForm" id="addC" (ngSubmit)="addTipo(addTipoF); addTipoF.reset()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" #closebuttonaddT data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar Tipo</h4>
+                </div>
+                <div class="modal-body ">
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" style="margin-top: 10px;">Descripción:</label>
+                        <div class="col-md-8">
+                            <div class="form-group has-default">
+                                <input type="text" id="desTipo" name="desTipo" [ngModel]="desTipo" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" style="margin-top: 10px;">Color:</label>
+                        <div class="col-md-8">
+                            <div class="form-group has-default">
+                                <input type="color" id="colTipo" name="colTipo" ngModel class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="add_Tipo" name="add_Tipo">
+                    Agregar
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

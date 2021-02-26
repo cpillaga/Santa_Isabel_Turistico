@@ -1,0 +1,114 @@
+<br>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content table-responsive table-full-width">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <!-- <th>Día</th> -->
+                                    <th>Fecha</th>
+                                    <th>Título</th>
+                                    <th>Descripción</th>
+                                    <th>Lugar</th>
+                                    <th class="text-right">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let agenda of agenda; let i=index;">
+                                <tr>
+                                    <!-- <td>
+                                        <button style="border-radius: 100px; width: 40px; height: 40px; text-align: center; margin-left: 5px;">{{agenda.fecha.substr(8,11) }}</button>
+                                    </td> -->
+                                    <td>{{(agenda.fecha.substr(0,10)) }}</td>
+                                    <td>{{agenda.titulo}}</td>
+                                    <td>{{agenda.descripcion}}</td>
+                                    <td>{{agenda.lugar}}</td>
+                                    <td class="td-actions text-right">
+
+                                        <a href="#" rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple btn-xs" style="padding-right: 30px;">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Agregar -->
+<caption>
+    <a class="btn btn-info btn-round btn-fab" title="agregar" data-toggle="modal" data-target="#modaladdA" style="position: fixed; height: 50px; width: 50px; background-color: #C00000; bottom: 15px; right: 20px; border-radius: 100% !important; float: right; text-align: center;">
+        <p style="font-size: 20px; color: #fff;">+</p>
+    </a>
+</caption>
+
+
+
+<!-- Modal para registros nuevos -->
+<div class="modal fade" id="modaladdA" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <form #f="ngForm" class="form-horizontal" (submit)="agregar(f)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" #closebuttonadd data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar</h4>
+                </div>
+                <div class="modal-body ">
+
+                    <div class="row">
+
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="lng" class="col-md-3 control-label">Título:</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="titulo" name="titulo" [ngModel]="titulo" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lng" class="col-md-3 control-label">Descripción:</label>
+                                <div class="col-md-8">
+                                    <textarea class="form-control" id="descripcion" name="descripcion" ngModel rows="4" cols="50"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lng" class="col-md-3 control-label">Fecha:</label>
+                                <div class="col-md-8">
+                                    <input type="date" id="fecha" name="fecha" ngModel class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lng" class="col-md-3 control-label">Lugar:</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="lugar" name="lugar" ngModel class="form-control">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger" id="add_Age" name="add_Age">
+                    Agregar
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -7,21 +7,21 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li routerLinkActive="active">
-                <a data-toggle="collapse" routerLink="/inicio" aria-expanded="true">
-                    <i class="ti-panel"></i>
+                <a routerLink="/inicio">
+                    <i class="ti-home"></i>
                     <p>Inicio</p>
                 </a>
             </li>
             <li routerLinkActive="active">
                 <a data-toggle="collapse" href="#componentsExamples">
-                    <i class="ti-package"></i>
+                    <i class="ti-user"></i>
                     <p>Administración
                         <b class="caret"></b>
                     </p>
                 </a>
                 <div class="collapse" id="componentsExamples">
                     <ul class="nav">
-                        <li routerLinkActive="active" id="submenu-sidebar">
+                        <li routerLinkActive="active" id="submenu-sidebar" style="cursor: pointer;">
                             <a>
                                 <span class="sidebar-normal">Crear Usuario</span>
                             </a>
@@ -29,36 +29,48 @@
                     </ul>
                 </div>
             </li>
-            <li>
-                <a data-toggle="collapse" href="#formsExamples">
-                    <i class="ti-clipboard"></i>
+            <li routerLinkActive="active">
+                <a routerLink="/vista">
+                    <i class="ti-location-pin"></i>
                     <p>
                         Lugares Turísticos
                     </p>
                 </a>
             </li>
-            <li>
-                <a data-toggle="collapse" href="#tablesExamples">
-                    <i class="ti-view-list-alt"></i>
+            <li routerLinkActive="active">
+                <a routerLink="/agenda">
+                    <i class="ti-calendar"></i>
                     <p>
-                        Fiestas
+                        Agenda Cultural
                     </p>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a data-toggle="collapse" href="#mapsExamples">
                     <i class="ti-map"></i>
                     <p>
                         Actividades
                     </p>
                 </a>
-            </li>
+            </li> -->
             <li routerLinkActive="active">
                 <a routerLink="/publicidad">
                     <i class="ti-bar-chart-alt"></i>
                     <p>Publicidad</p>
                 </a>
             </li>
+            <li routerLinkActive="active">
+                <a routerLink="/rutas">
+                    <i class="ti-map-alt"></i>
+                    <p>Rutas</p>
+                </a>
+            </li>
+            <!-- <li routerLinkActive="active">
+                <a routerLink="/vista">
+                    <i class="ti-eye"></i>
+                    <p>Vista Previa</p>
+                </a>
+            </li> -->
         </ul>
     </div>
 </div>
