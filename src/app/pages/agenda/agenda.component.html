@@ -10,6 +10,7 @@
                                 <tr>
                                     <!-- <th>Día</th> -->
                                     <th>Fecha</th>
+                                    <th>Hora</th>
                                     <th>Título</th>
                                     <th>Descripción</th>
                                     <th>Lugar</th>
@@ -22,9 +23,10 @@
                                         <button style="border-radius: 100px; width: 40px; height: 40px; text-align: center; margin-left: 5px;">{{agenda.fecha.substr(8,11) }}</button>
                                     </td> -->
                                     <td>{{(agenda.fecha.substr(0,10)) }}</td>
-                                    <td>{{agenda.titulo}}</td>
-                                    <td>{{agenda.descripcion}}</td>
-                                    <td>{{agenda.lugar}}</td>
+                                    <td>{{(agenda.fecha) }}</td>
+                                    <td>{{ agenda.titulo}}</td>
+                                    <td>{{ agenda.descripcion}}</td>
+                                    <td>{{ agenda.lugar}}</td>
                                     <td class="td-actions text-right">
 
                                         <a href="#" rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple btn-xs" style="padding-right: 30px;">

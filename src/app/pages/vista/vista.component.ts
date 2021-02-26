@@ -27,8 +27,10 @@ export class VistaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.crearMapa();
-    this.getLugares();
+    setTimeout(() => {
+      this.crearMapa();
+      this.getLugares();
+    }, 200);
   }
 
   public getJSON(): Observable<any> {

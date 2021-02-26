@@ -30,12 +30,31 @@
                 </div>
             </li>
             <li routerLinkActive="active">
-                <a routerLink="/vista">
+                <a data-toggle="collapse" href="#componentsExamples1">
                     <i class="ti-location-pin"></i>
-                    <p>
-                        Lugares Turísticos
+                    <p>Lugares Turísticos
+                        <b class="caret"></b>
                     </p>
                 </a>
+                <div class="collapse" id="componentsExamples1">
+                    <ul class="nav">
+                        <li routerLinkActive="active" id="submenu-sidebar" style="cursor: pointer;">
+                            <a routerLink="/lugares">
+                                <span class="sidebar-normal">Crear lugar</span>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" id="submenu-sidebar" style="cursor: pointer;">
+                            <a routerLink="/listado">
+                                <span class="sidebar-normal">Listado</span>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" id="submenu-sidebar" style="cursor: pointer;">
+                            <a routerLink="/vista">
+                                <span class="sidebar-normal">Vista previa</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li routerLinkActive="active">
                 <a routerLink="/agenda">
@@ -45,14 +64,6 @@
                     </p>
                 </a>
             </li>
-            <!-- <li>
-                <a data-toggle="collapse" href="#mapsExamples">
-                    <i class="ti-map"></i>
-                    <p>
-                        Actividades
-                    </p>
-                </a>
-            </li> -->
             <li routerLinkActive="active">
                 <a routerLink="/publicidad">
                     <i class="ti-bar-chart-alt"></i>

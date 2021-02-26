@@ -1,0 +1,114 @@
+<br>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content table-responsive table-full-width">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <!-- <th>Día</th> -->
+                                    <th>Nombre</th>
+                                    <th>Sector</th>
+                                    <th>Tipo</th>
+                                    <th>Información</th>
+                                    <th>Descripción</th>
+                                    <th class="text-right">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let lugar of lugar">
+                                    <!-- <td>
+                                        <button style="border-radius: 100px; width: 40px; height: 40px; text-align: center; margin-left: 5px;">{{agenda.fecha.substr(8,11) }}</button>
+                                    </td> -->
+                                    <td>{{ lugar.nombre }}</td>
+                                    <td>{{ lugar.sector.descripcion }}</td>
+                                    <td>{{ lugar.tipo.descripcion }}</td>
+                                    <td>{{ lugar.informacion }}</td>
+                                    <td>{{ lugar.descripcion }}</td>
+                                    <td class="td-actions text-right">
+                                        <a rel="tooltip" title="Ver más" class="btn btn-info btn-simple btn-xs" style="padding-right: 30px;" data-toggle="modal" data-target="#modalView">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+
+                                        <a rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple btn-xs" style="padding-right: 30px;">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Agregar -->
+<!-- <caption>
+    <a class="btn btn-info btn-round btn-fab" title="agregar" data-toggle="modal" data-target="#modaladdA" style="position: fixed; height: 50px; width: 50px; background-color: #C00000; bottom: 15px; right: 20px; border-radius: 100% !important; float: right; text-align: center;">
+        <p style="font-size: 20px; color: #fff;">+</p>
+    </a>
+</caption>
+ -->
+
+<!-- Modal para tipo nuevos -->
+<div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" style="width: 400px;" role="document">
+        <!-- #upd="ngForm" id="addC" (ngSubmit)="updRedes(upd); upd.reset()" -->
+        <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" #closebuttonaddV data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                    <h4 class="modal-title" id="myModalLabel">Redes Sociales</h4>
+                </div>
+                <div class="modal-body ">
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" style="margin-top: 10px;">Página web:</label>
+                        <div class="col-md-8">
+                            <div class="form-group has-default">
+                                <input type="text" id="pw" name="pw" [ngModel]="pw" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" style="margin-top: 10px;">Teléfono</label>
+                        <div class="col-md-8">
+                            <div class="form-group has-default">
+                                <input type="text" id="tel" name="tel" [ngModel]="tel" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" style="margin-top: 10px;">Facebook:</label>
+                        <div class="col-md-8">
+                            <div class="form-group has-default">
+                                <input type="text" id="face" name="face" [ngModel]="face" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" style="margin-top: 10px;">Instagram:</label>
+                        <div class="col-md-8">
+                            <div class="form-group has-default">
+                                <input type="text" id="insta" name="insta" [ngModel]="insta" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="add_Tipo" name="add_Tipo">
+                    Agregar
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

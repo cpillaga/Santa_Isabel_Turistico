@@ -49,9 +49,11 @@ export class LugaresComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.crearMapa();
-    this.getSector();
-    this.getTipos();
+    setTimeout(() => {
+      this.crearMapa();
+      this.getSector();
+      this.getTipos();
+    }, 200);
   }
 
   getSector(){

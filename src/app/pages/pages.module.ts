@@ -12,6 +12,7 @@ import { LugaresComponent } from './lugares/lugares.component';
 import { PublicidadComponent } from './publicidad/publicidad.component';
 import { RutasComponent } from './rutas/rutas.component';
 import { VistaComponent } from './vista/vista.component';
+import { ListarLugarComponent } from './listar-lugar/listar-lugar.component';
 
 
 
@@ -24,7 +25,8 @@ import { VistaComponent } from './vista/vista.component';
     LugaresComponent,
     PublicidadComponent,
     RutasComponent,
-    VistaComponent
+    VistaComponent,
+    ListarLugarComponent
   ],
   exports: [
       PagesComponent,
